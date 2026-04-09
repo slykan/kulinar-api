@@ -96,7 +96,7 @@ class AuthController extends Controller
     localStorage.setItem('kulinar_token', {$this->jsString($token)});
     localStorage.setItem('kulinar_user', {$this->jsString($userData)});
   } catch(e) {}
-  window.location.href = '/';
+  window.location.href = '/#/splash';
 </script>
 <p>Preusmjerava...</p>
 </body>
