@@ -69,7 +69,7 @@ class AuthController extends Controller
         try {
             $googleUser = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Google autentifikacija nije uspjela.'], 422);
+            return redirect('/#/google-callback?error=' . urlencode($e->getMessage()));
         }
 
         $user = User::updateOrCreate(
