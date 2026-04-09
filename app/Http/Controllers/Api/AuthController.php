@@ -161,8 +161,8 @@ HTML;
             ]);
         }
 
-        // Mobile klijenti preskače CF Turnstile
-        if ($token === 'mobile-bypass') {
+        // Mobile i web fallback klijenti preskače CF Turnstile
+        if ($token === 'mobile-bypass' || $token === 'web-bypass') {
             return;
         }
 
