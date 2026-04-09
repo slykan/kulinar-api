@@ -83,32 +83,9 @@ class AuthController extends Controller
         );
 
         $token = $user->createToken('kulinar')->plainTextToken;
-        $userData = json_encode($user);
 
-        // Vrati HTML koji spremi token u localStorage i preusmjeri na Flutter app
-        $html = <<<HTML
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body>
-<script>
-  try {
-    var token = {$this->jsString($token)};
-    localStorage.setItem('kulinar_token', token);
-    localStorage.setItem('kulinar_user', {$this->jsString($userData)});
-    console.log('TOKEN SAVED:', token.substring(0, 20) + '...');
-    console.log('LS CHECK:', localStorage.getItem('kulinar_token') ? 'OK' : 'FAIL');
-  } catch(e) {
-    console.error('SAVE ERROR:', e);
-  }
-  window.location.href = '/';
-</script>
-<p>Preusmjerava...</p>
-</body>
-</html>
-HTML;
-
-        return response($html, 200)->header('Content-Type', 'text/html');
+        // Proslijedi token u URL hash — Flutter ga parsira direktno
+        return redirect('/#/google-callback?token=' . urlencode($token));
     }
 
     private function jsString(string $value): string
