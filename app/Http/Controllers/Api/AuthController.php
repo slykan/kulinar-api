@@ -123,6 +123,34 @@ HTML;
         return response()->json($request->user());
     }
 
+    public function updateProfile(Request $request)
+    {
+        $user = $request->user();
+
+        $data = $request->validate([
+            'name'                  => 'sometimes|string|max:255',
+            'email'                 => 'sometimes|email|unique:users,email,' . $user->id,
+            'password'              => 'sometimes|string|min:8|confirmed',
+        ]);
+
+        if (isset($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        }
+
+        $user->update($data);
+
+        return response()->json($user->fresh());
+    }
+
+    public function deleteAccount(Request $request)
+    {
+        $user = $request->user();
+        $user->tokens()->delete();
+        $user->delete();
+
+        return response()->json(['message' => 'Račun je obrisan.']);
+    }
+
     private function verifyTurnstile(Request $request): void
     {
         $token = $request->input('cf_turnstile_response');

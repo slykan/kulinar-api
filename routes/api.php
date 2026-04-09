@@ -17,6 +17,8 @@ Route::get('/posts/{slug}', [PostController::class, 'show']);
 // Zaštićene rute
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthController::class, 'me']);
+    Route::put('/me', [AuthController::class, 'updateProfile']);
+    Route::delete('/me', [AuthController::class, 'deleteAccount']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::post('/posts', [PostController::class, 'store']);
