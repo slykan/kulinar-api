@@ -82,10 +82,33 @@ class AuthController extends Controller
             ]
         );
 
-        return response()->json([
-            'token' => $user->createToken('kulinar')->plainTextToken,
-            'user'  => $user,
-        ]);
+        $token = $user->createToken('kulinar')->plainTextToken;
+        $userData = json_encode($user);
+
+        // Vrati HTML koji spremi token u localStorage i preusmjeri na Flutter app
+        $html = <<<HTML
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+  try {
+    localStorage.setItem('kulinar_token', {$this->jsString($token)});
+    localStorage.setItem('kulinar_user', {$this->jsString($userData)});
+  } catch(e) {}
+  window.location.href = '/';
+</script>
+<p>Preusmjerava...</p>
+</body>
+</html>
+HTML;
+
+        return response($html, 200)->header('Content-Type', 'text/html');
+    }
+
+    private function jsString(string $value): string
+    {
+        return json_encode($value);
     }
 
     public function logout(Request $request)
