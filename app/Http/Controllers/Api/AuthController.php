@@ -110,15 +110,21 @@ class AuthController extends Controller
         $user = $request->user();
 
         $data = $request->validate([
-            'name'                  => 'sometimes|string|max:255',
-            'email'                 => 'sometimes|email|unique:users,email,' . $user->id,
-            'password'              => 'sometimes|string|min:8|confirmed',
+            'name'     => 'sometimes|string|max:255',
+            'email'    => 'sometimes|email|unique:users,email,' . $user->id,
+            'password' => 'sometimes|string|min:8|confirmed',
+            'avatar'   => 'sometimes|image|max:2048',
         ]);
 
         if (isset($data['password'])) {
             $data['password'] = Hash::make($data['password']);
         }
 
+        if ($request->hasFile('avatar')) {
+            $data['avatar'] = 'https://kulinar.app/storage/' . $request->file('avatar')->store('avatars', 'public');
+        }
+
+        unset($data['avatar_file']);
         $user->update($data);
 
         return response()->json($user->fresh());

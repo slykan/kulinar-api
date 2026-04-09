@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BookmarkController;
 use App\Http\Controllers\Api\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/posts/{post}', [PostController::class, 'update']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
     Route::get('/my-posts', [PostController::class, 'myPosts']);
+    Route::post('/posts/{post}/bookmark', [BookmarkController::class, 'toggle']);
+    Route::get('/bookmarks', [BookmarkController::class, 'index']);
 });

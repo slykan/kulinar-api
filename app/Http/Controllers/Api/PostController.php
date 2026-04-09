@@ -47,14 +47,20 @@ class PostController extends Controller
         return response()->json($post->load('user:id,name,avatar'), 201);
     }
 
-    public function show(string $slug)
+    public function show(Request $request, string $slug)
     {
         $post = Post::with('user:id,name,avatar')
             ->where('slug', $slug)
             ->where('published', true)
             ->firstOrFail();
 
-        return response()->json($post);
+        $data = $post->toArray();
+        $data['is_owner'] = $request->user()?->id === $post->user_id;
+        $data['is_bookmarked'] = $request->user()
+            ? $request->user()->bookmarks()->where('post_id', $post->id)->exists()
+            : false;
+
+        return response()->json($data);
     }
 
     public function update(Request $request, Post $post)
