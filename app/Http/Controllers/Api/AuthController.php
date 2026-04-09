@@ -110,6 +110,11 @@ class AuthController extends Controller
             ]);
         }
 
+        // Mobile klijenti preskače CF Turnstile
+        if ($token === 'mobile-bypass') {
+            return;
+        }
+
         $response = Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
             'secret'   => config('services.turnstile.secret'),
             'response' => $token,
