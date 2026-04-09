@@ -93,10 +93,15 @@ class AuthController extends Controller
 <body>
 <script>
   try {
-    localStorage.setItem('kulinar_token', {$this->jsString($token)});
+    var token = {$this->jsString($token)};
+    localStorage.setItem('kulinar_token', token);
     localStorage.setItem('kulinar_user', {$this->jsString($userData)});
-  } catch(e) {}
-  window.location.href = '/#/splash';
+    console.log('TOKEN SAVED:', token.substring(0, 20) + '...');
+    console.log('LS CHECK:', localStorage.getItem('kulinar_token') ? 'OK' : 'FAIL');
+  } catch(e) {
+    console.error('SAVE ERROR:', e);
+  }
+  window.location.href = '/';
 </script>
 <p>Preusmjerava...</p>
 </body>
