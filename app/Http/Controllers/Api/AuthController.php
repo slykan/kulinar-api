@@ -83,9 +83,10 @@ class AuthController extends Controller
         );
 
         $token = $user->createToken('kulinar')->plainTextToken;
+        $userData = urlencode(json_encode($user->only(['id', 'name', 'email', 'avatar', 'google_id'])));
 
-        // Proslijedi token u URL hash — Flutter ga parsira direktno
-        return redirect('/#/google-callback?token=' . urlencode($token));
+        // Proslijedi token i user podatke u URL — Flutter ne mora zvati /me
+        return redirect('/#/google-callback?token=' . urlencode($token) . '&user=' . $userData);
     }
 
     private function jsString(string $value): string
