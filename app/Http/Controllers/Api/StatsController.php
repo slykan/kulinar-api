@@ -23,21 +23,29 @@ class StatsController extends Controller
                 'initials' => mb_strtoupper(mb_substr($u->name, 0, 1)),
             ]);
 
-        $recentPosts = Post::where('published', true)
-            ->withCount('ratings')
-            ->withAvg('ratings', 'rating')
-            ->latest()
-            ->take(2)
-            ->get()
-            ->map(fn($p) => [
-                'id'             => $p->id,
-                'title'          => $p->title,
-                'excerpt'        => $p->excerpt ? mb_strimwidth($p->excerpt, 0, 60, '…') : null,
-                'slug'           => $p->slug,
-                'image'          => $p->image,
-                'rating_average' => round($p->ratings_avg_rating ?? 0, 1),
-                'rating_count'   => $p->ratings_count ?? 0,
-            ]);
+        $recentPostsQuery = Post::where('published', true)->latest()->take(2);
+        $recentPostItems = $recentPostsQuery->get(['id', 'title', 'excerpt', 'slug', 'image']);
+        $recentPostIds = $recentPostItems->pluck('id')->all();
+
+        $ratingsData = collect();
+        try {
+            $ratingsData = \DB::table('ratings')
+                ->whereIn('post_id', $recentPostIds)
+                ->selectRaw('post_id, AVG(rating) as avg_rating, COUNT(*) as cnt')
+                ->groupBy('post_id')
+                ->get()
+                ->keyBy('post_id');
+        } catch (\Exception $e) {}
+
+        $recentPosts = $recentPostItems->map(fn($p) => [
+            'id'             => $p->id,
+            'title'          => $p->title,
+            'excerpt'        => $p->excerpt ? mb_strimwidth($p->excerpt, 0, 60, '…') : null,
+            'slug'           => $p->slug,
+            'image'          => $p->image,
+            'rating_average' => $ratingsData->has($p->id) ? round($ratingsData->get($p->id)->avg_rating, 1) : 0,
+            'rating_count'   => $ratingsData->has($p->id) ? (int) $ratingsData->get($p->id)->cnt : 0,
+        ]);
 
         return response()->json([
             'user_count'   => $userCount,
