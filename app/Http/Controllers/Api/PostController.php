@@ -12,10 +12,17 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::with('user:id,name,avatar')
-            ->where('published', true)
-            ->latest('published_at')
-            ->paginate(12);
+        $query = Post::with('user:id,name,avatar')
+            ->where('published', true);
+
+        if ($search = $request->query('search')) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('excerpt', 'like', "%{$search}%");
+            });
+        }
+
+        $posts = $query->latest('published_at')->paginate(12);
 
         return response()->json($posts);
     }
@@ -109,7 +116,16 @@ class PostController extends Controller
 
     public function myPosts(Request $request)
     {
-        $posts = $request->user()->posts()->latest()->paginate(12);
+        $query = $request->user()->posts();
+
+        if ($search = $request->query('search')) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('excerpt', 'like', "%{$search}%");
+            });
+        }
+
+        $posts = $query->latest()->paginate(12);
 
         return response()->json($posts);
     }
