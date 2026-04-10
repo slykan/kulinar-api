@@ -24,15 +24,19 @@ class StatsController extends Controller
             ]);
 
         $recentPosts = Post::where('published', true)
+            ->withCount('ratings')
+            ->withAvg('ratings', 'rating')
             ->latest()
             ->take(2)
-            ->get(['id', 'title', 'excerpt', 'slug', 'image'])
+            ->get()
             ->map(fn($p) => [
-                'id'      => $p->id,
-                'title'   => $p->title,
-                'excerpt' => $p->excerpt ? mb_strimwidth($p->excerpt, 0, 60, '…') : null,
-                'slug'    => $p->slug,
-                'image'   => $p->image,
+                'id'             => $p->id,
+                'title'          => $p->title,
+                'excerpt'        => $p->excerpt ? mb_strimwidth($p->excerpt, 0, 60, '…') : null,
+                'slug'           => $p->slug,
+                'image'          => $p->image,
+                'rating_average' => round($p->ratings_avg_rating ?? 0, 1),
+                'rating_count'   => $p->ratings_count ?? 0,
             ]);
 
         return response()->json([

@@ -13,6 +13,8 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $query = Post::with('user:id,name,avatar')
+            ->withCount('ratings')
+            ->withAvg('ratings', 'rating')
             ->where('published', true);
 
         if ($search = $request->query('search')) {
@@ -24,7 +26,25 @@ class PostController extends Controller
 
         $posts = $query->latest('published_at')->paginate(12);
 
-        return response()->json($posts);
+        $user = $request->user();
+        $postIds = $posts->pluck('id');
+
+        $myRatings = $user
+            ? \App\Models\Rating::where('user_id', $user->id)
+                ->whereIn('post_id', $postIds)
+                ->pluck('rating', 'post_id')
+            : collect();
+
+        $postsArray = $posts->toArray();
+        $postsArray['data'] = collect($postsArray['data'])->map(function ($post) use ($user, $myRatings) {
+            $post['rating_average'] = round($post['ratings_avg_rating'] ?? 0, 1);
+            $post['rating_count']   = $post['ratings_count'] ?? 0;
+            $post['my_rating']      = $myRatings[$post['id']] ?? null;
+            $post['is_owner']       = $user ? $post['user_id'] === $user->id : false;
+            return $post;
+        })->values()->all();
+
+        return response()->json($postsArray);
     }
 
     public function store(Request $request)
@@ -121,7 +141,11 @@ class PostController extends Controller
 
     public function myPosts(Request $request)
     {
-        $query = $request->user()->posts();
+        $user = $request->user();
+        $query = $user->posts()
+            ->with('user:id,name,avatar')
+            ->withCount('ratings')
+            ->withAvg('ratings', 'rating');
 
         if ($search = $request->query('search')) {
             $query->where(function ($q) use ($search) {
@@ -132,6 +156,20 @@ class PostController extends Controller
 
         $posts = $query->latest()->paginate(12);
 
-        return response()->json($posts);
+        $postIds = $posts->pluck('id');
+        $myRatings = \App\Models\Rating::where('user_id', $user->id)
+            ->whereIn('post_id', $postIds)
+            ->pluck('rating', 'post_id');
+
+        $postsArray = $posts->toArray();
+        $postsArray['data'] = collect($postsArray['data'])->map(function ($post) use ($user, $myRatings) {
+            $post['rating_average'] = round($post['ratings_avg_rating'] ?? 0, 1);
+            $post['rating_count']   = $post['ratings_count'] ?? 0;
+            $post['my_rating']      = $myRatings[$post['id']] ?? null;
+            $post['is_owner']       = true;
+            return $post;
+        })->values()->all();
+
+        return response()->json($postsArray);
     }
 }
