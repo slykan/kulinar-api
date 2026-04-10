@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookmarkController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\StatsController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
     Route::get('/my-posts', [PostController::class, 'myPosts']);
     Route::post('/posts/{post}/bookmark', [BookmarkController::class, 'toggle']);
+    Route::post('/posts/{post}/rate', [RatingController::class, 'rate']);
     Route::get('/bookmarks', [BookmarkController::class, 'index']);
 });

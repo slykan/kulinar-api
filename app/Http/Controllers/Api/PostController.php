@@ -66,6 +66,11 @@ class PostController extends Controller
         $data['is_bookmarked'] = $request->user()
             ? $request->user()->bookmarks()->where('post_id', $post->id)->exists()
             : false;
+        $data['rating_average'] = round($post->ratings()->avg('rating') ?? 0, 1);
+        $data['rating_count']   = $post->ratings()->count();
+        $data['my_rating']      = $request->user()
+            ? $post->ratings()->where('user_id', $request->user()->id)->value('rating')
+            : null;
 
         return response()->json($data);
     }
