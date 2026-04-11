@@ -63,10 +63,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title'   => 'required|string|max:255',
-            'excerpt' => 'nullable|string|max:500',
-            'content' => 'required|string',
-            'image'   => 'nullable|image|max:5120',
+            'title'       => 'required|string|max:255',
+            'excerpt'     => 'nullable|string|max:500',
+            'servings'    => 'nullable|integer|min:1|max:999',
+            'ingredients' => 'nullable|string',
+            'content'     => 'required|string',
+            'image'       => 'nullable|image|max:5120',
         ]);
 
         $imagePath = null;
@@ -74,10 +76,18 @@ class PostController extends Controller
             $imagePath = $request->file('image')->store('posts', 'public');
         }
 
+        $ingredients = null;
+        if (!empty($data['ingredients'])) {
+            $decoded = json_decode($data['ingredients'], true);
+            $ingredients = is_array($decoded) ? $decoded : null;
+        }
+
         $post = $request->user()->posts()->create([
             'title'        => $data['title'],
             'slug'         => Str::slug($data['title']),
             'excerpt'      => $data['excerpt'] ?? null,
+            'servings'     => $data['servings'] ?? null,
+            'ingredients'  => $ingredients,
             'content'      => $data['content'],
             'image'        => $imagePath,
             'published'    => true,
@@ -115,10 +125,12 @@ class PostController extends Controller
         }
 
         $data = $request->validate([
-            'title'   => 'sometimes|string|max:255',
-            'excerpt' => 'nullable|string|max:500',
-            'content' => 'sometimes|string',
-            'image'   => 'nullable|image|max:5120',
+            'title'       => 'sometimes|string|max:255',
+            'excerpt'     => 'nullable|string|max:500',
+            'servings'    => 'nullable|integer|min:1|max:999',
+            'ingredients' => 'nullable|string',
+            'content'     => 'sometimes|string',
+            'image'       => 'nullable|image|max:5120',
         ]);
 
         if ($request->hasFile('image')) {
@@ -130,6 +142,15 @@ class PostController extends Controller
 
         if (isset($data['title'])) {
             $data['slug'] = Str::slug($data['title']);
+        }
+
+        if (array_key_exists('ingredients', $data)) {
+            if (!empty($data['ingredients'])) {
+                $decoded = json_decode($data['ingredients'], true);
+                $data['ingredients'] = is_array($decoded) ? $decoded : null;
+            } else {
+                $data['ingredients'] = null;
+            }
         }
 
         $post->update($data);

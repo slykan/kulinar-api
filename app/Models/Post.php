@@ -15,6 +15,8 @@ class Post extends Model
         'title',
         'slug',
         'excerpt',
+        'servings',
+        'ingredients',
         'content',
         'image',
         'published',
@@ -24,6 +26,7 @@ class Post extends Model
     protected $casts = [
         'published' => 'boolean',
         'published_at' => 'datetime',
+        'ingredients' => 'array',
     ];
 
     protected static function boot()
