@@ -57,19 +57,29 @@ class AuthController extends Controller
         ]);
     }
 
-    public function googleRedirect()
+    public function googleRedirect(Request $request)
     {
-        return response()->json([
-            'url' => Socialite::driver('google')->stateless()->redirect()->getTargetUrl(),
-        ]);
+        $mobile = $request->get('mobile') === '1';
+        $url = Socialite::driver('google')
+            ->stateless()
+            ->with(['state' => $mobile ? 'mobile' : 'web'])
+            ->redirect()
+            ->getTargetUrl();
+        return response()->json(['url' => $url]);
     }
 
     public function googleCallback(Request $request)
     {
+        $isMobile = $request->get('state') === 'mobile';
+
         try {
             $googleUser = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
-            return redirect('/#/google-callback?error=' . urlencode($e->getMessage()));
+            $errParam = '?error=' . urlencode($e->getMessage());
+            return redirect($isMobile
+                ? 'kulinar://app/google-callback' . $errParam
+                : '/#/google-callback' . $errParam
+            );
         }
 
         $user = User::updateOrCreate(
@@ -84,9 +94,13 @@ class AuthController extends Controller
 
         $token = $user->createToken('kulinar')->plainTextToken;
         $userData = urlencode(json_encode($user->only(['id', 'name', 'email', 'avatar', 'google_id'])));
+        $params = '?token=' . urlencode($token) . '&user=' . $userData;
 
-        // Proslijedi token i user podatke u URL — Flutter ne mora zvati /me
-        return redirect('/#/google-callback?token=' . urlencode($token) . '&user=' . $userData);
+        // Mobile: deep link koji otvori app; Web: hash routing
+        return redirect($isMobile
+            ? 'kulinar://app/google-callback' . $params
+            : '/#/google-callback' . $params
+        );
     }
 
     private function jsString(string $value): string
