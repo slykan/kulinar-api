@@ -82,9 +82,16 @@ class PostController extends Controller
             $ingredients = is_array($decoded) ? $decoded : null;
         }
 
+        $baseSlug = Str::slug($data['title']);
+        $slug = $baseSlug;
+        $i = 1;
+        while (Post::where('slug', $slug)->exists()) {
+            $slug = $baseSlug . '-' . $i++;
+        }
+
         $post = $request->user()->posts()->create([
             'title'        => $data['title'],
-            'slug'         => Str::slug($data['title']),
+            'slug'         => $slug,
             'excerpt'      => $data['excerpt'] ?? null,
             'servings'     => $data['servings'] ?? null,
             'ingredients'  => $ingredients,
@@ -141,7 +148,13 @@ class PostController extends Controller
         }
 
         if (isset($data['title'])) {
-            $data['slug'] = Str::slug($data['title']);
+            $baseSlug = Str::slug($data['title']);
+            $slug = $baseSlug;
+            $i = 1;
+            while (Post::where('slug', $slug)->where('id', '!=', $post->id)->exists()) {
+                $slug = $baseSlug . '-' . $i++;
+            }
+            $data['slug'] = $slug;
         }
 
         if (array_key_exists('ingredients', $data)) {
