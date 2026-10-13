@@ -78,7 +78,7 @@ class AuthController extends Controller
             $errParam = '?error=' . urlencode($e->getMessage());
             return redirect($isMobile
                 ? 'kulinar://app/google-callback' . $errParam
-                : '/#/google-callback' . $errParam
+                : '/app/#/google-callback' . $errParam
             );
         }
 
@@ -99,7 +99,7 @@ class AuthController extends Controller
         // Mobile: deep link koji otvori app; Web: hash routing
         return redirect($isMobile
             ? 'kulinar://app/google-callback' . $params
-            : '/#/google-callback' . $params
+            : '/app/#/google-callback' . $params
         );
     }
 
