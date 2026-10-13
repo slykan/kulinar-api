@@ -9,14 +9,15 @@ Server: cPanel korisnik `kulinar`. Laravel je u `~/api`, docroot je `~/public_ht
    ```bash
    cd ~/api && git pull && php artisan optimize:clear && php artisan optimize
    ```
-2. **Flutter web u /app** — sadržaj lokalnog `kulinar.app/build/web/` (build s `--base-href /app/`)
+2. **Flutter web u /app** — raspakirati `kulinar.app/kulinar-web-app.zip` (sadržaj `build/web/`) (build s `--base-href /app/`)
    uploadati u `~/public_html/app/`.
 3. **Očistiti stari Flutter iz korijena** `~/public_html/` — obrisati:
    `index.html`, `main.dart.js`, `flutter.js`, `flutter_bootstrap.js`, `version.json`,
    `manifest.json`, `assets/`, `canvaskit/`.
    **Ostaviti:** `index.php`, `storage`, `favicon.png`, `icons/`, `.htaccess` (zamijeniti u koraku 4).
 4. Iz ovog foldera (`deploy/public_html/`) kopirati u `~/public_html/`:
-   `.htaccess`, `ads.txt`, `robots.txt`, `flutter_service_worker.js` (gasi stari service worker kod starih posjetitelja).
+   `.htaccess`, `ads.txt`, `robots.txt`, `privacy.html` (stara adresa politike privatnosti za Google Play),
+   `flutter_service_worker.js` (gasi stari service worker kod starih posjetitelja).
 
 ## Provjera
 - `https://kulinar.app/` — HTML naslovnica (ne Flutter)
