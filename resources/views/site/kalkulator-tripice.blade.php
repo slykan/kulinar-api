@@ -44,6 +44,47 @@
             <li>Dodaj narezane tripice, zalij temeljcem od kuhanja i kuhaj na laganoj vatri.</li>
             <li>Pred kraj zgusni zaprškom od brašna i mrvicama, posoli i dodaj tucanu papriku po ukusu.</li>
         </ol>
+        <h2>Primjer: 2 kg tripica za društvo</h2>
+        <p>
+            Za 2 kg tripica faktor je 2000 ÷ 500 = 4, pa se sve iz osnovnog recepta množi s četiri. To je dovoljno za
+            oko 12 osoba:
+        </p>
+        <table class="t">
+            <tr><td>Hamburger i slanina</td><td class="num">po 400 g</td></tr>
+            <tr><td>Crveni luk</td><td class="num">8 kom</td></tr>
+            <tr><td>Češnjak</td><td class="num">8 češnjeva</td></tr>
+            <tr><td>Mrkva</td><td class="num">2 kom</td></tr>
+            <tr><td>Koncentrat rajčice i slatka paprika</td><td class="num">po 4 žličice</td></tr>
+            <tr><td>Krušne mrvice</td><td class="num">8 žlica</td></tr>
+            <tr><td>Voda</td><td class="num">6 l</td></tr>
+        </table>
+        <p>
+            Kod velikih količina sol i ljutu papriku dodaj malo manje od izračunatog, pa probaj i dosoli na kraju.
+            Vodu dodaj postupno — u širokom kotliću isparava drukčije nego u loncu.
+        </p>
+
+        <h2>Česta pitanja</h2>
+        <h3>Koje tripice kupiti?</h3>
+        <p>
+            U trgovinama se najčešće prodaju <strong>očišćene i prethodno kuhane</strong> tripice, bijele boje. One su
+            najjednostavnije: dovoljno ih je isprati, narezati na rezance i kuhati u umaku dok ne postanu mekane. Sirove,
+            neočišćene tripice treba temeljito oprati i dugo kuhati prije nego što idu u umak.
+        </p>
+        <h3>Koliko se dugo kuhaju?</h3>
+        <p>
+            Ovisi o tripicama: prethodno kuhane u umaku obično omekšaju za sat do sat i pol, a sirove trebaju nekoliko sati.
+            Najbolja provjera je okus — tripice trebaju biti mekane, ali ne raspadnute.
+        </p>
+        <h3>Kako se riješiti mirisa?</h3>
+        <p>
+            Tripice prije kuhanja dobro isperi u više voda, a neki ih prokuhaju nekoliko minuta i bace prvu vodu. Povrće
+            (mrkva, celer, peršin), lovor i dimljena slanina u umaku ublaže preostali miris.
+        </p>
+        <h3>Mogu li se zamrznuti?</h3>
+        <p>
+            Gotove tripice u umaku dobro podnose zamrzavanje 2–3 mjeseca. Odmrzni ih u hladnjaku i podgrij do vrenja.
+        </p>
+
         <p>Cijeli postupak, s čišćenjem tripica i savjetima kako izbjeći neugodan miris, u vodiču <a href="/vodici/tripice-tradicionalni-recept">Tripice na tradicionalni način</a>.</p>
     </div>
 

@@ -8,7 +8,7 @@
         'author' => ['@type' => 'Person', 'name' => $post->user?->name ?? 'Kulinar.app'],
         'datePublished' => $post->published_at?->toDateString(),
         'description' => \App\Http\Controllers\SiteController::sazetak($post, 160),
-        'recipeYield' => $post->servings ? $post->servings.' osobe' : null,
+        'recipeYield' => $post->servings ? \App\Http\Controllers\SiteController::osobe($post->servings) : null,
         'recipeIngredient' => $sastojci->all() ?: null,
         'recipeInstructions' => $koraci->map(fn ($k) => ['@type' => 'HowToStep', 'text' => $k])->all() ?: null,
         'inLanguage' => 'hr',
@@ -34,7 +34,7 @@
         @if ($post->user?->avatar)<img src="{{ $post->user->avatar }}" alt="" style="width:28px;height:28px;border-radius:50%;" referrerpolicy="no-referrer">@endif
         <span>{{ $post->user?->name }}</span>
         @if ($post->published_at)<span>· {{ $post->published_at->format('d.m.Y.') }}</span>@endif
-        @if ($post->servings)<span>· {{ $post->servings }} osobe</span>@endif
+        @if ($post->servings)<span>· {{ \App\Http\Controllers\SiteController::osobe($post->servings) }}</span>@endif
         @if ($post->rating_count > 0)<span>· <span class="stars">★ {{ number_format($post->rating_average, 1, ',', '') }}</span> ({{ $post->rating_count }} ocjena)</span>@endif
     </div>
 
@@ -46,7 +46,7 @@
 
     <div class="prose">
         @if ($sastojci->isNotEmpty())
-            <h2>Sastojci @if ($post->servings)<span style="color:var(--dim);font-weight:600;font-size:1rem;">za {{ $post->servings }} osobe</span>@endif</h2>
+            <h2>Sastojci @if ($post->servings)<span style="color:var(--dim);font-weight:600;font-size:1rem;">{{ \App\Http\Controllers\SiteController::osobe($post->servings, true) }}</span>@endif</h2>
             <ul>@foreach ($sastojci as $s)<li>{{ $s }}</li>@endforeach</ul>
         @endif
 

@@ -1,6 +1,6 @@
 @extends('site.layout', [
     'description' => 'Domaći recepti zajednice, besplatni kalkulatori za kobasice, tripice i turšiju te vodiči za domaću kuhinju — Kulinar.app.',
-    'ads' => true,
+    'ads' => false, // list page — ads only next to recipes, guides and calculators
     'jsonLd' => [
         '@context' => 'https://schema.org',
         '@type' => 'WebSite',

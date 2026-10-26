@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 class SiteController extends Controller
 {
     /** Recept kraći od ovoga (upute + sastojci) ne indeksira se — premalo sadržaja za tražilice. */
-    public const MIN_INDEX_CHARS = 250;
+    public const MIN_INDEX_CHARS = 600; // kraći korisnički recepti su noindex, bez oglasa i izvan sitemapa
 
     public const KALKULATORI = [
         'kobasice' => ['naziv' => 'Kalkulator začina za kobasice', 'ico' => '🌭', 'opis' => 'Upiši kilograme mesa i dobiješ točne grame soli, paprike, papra, češnjaka i šećera.'],
@@ -27,6 +27,48 @@ class SiteController extends Controller
     public static function vodici(): array
     {
         return [
+            [
+                'slug' => 'temperatura-pecenja-mesa',
+                'title' => 'Temperatura pečenja mesa: kada je piletina, svinjetina i junetina gotova',
+                'excerpt' => 'Sigurne unutarnje temperature za perad, mljeveno meso, svinjetinu, junetinu i ribu, stupnjevi pečenosti bifteka, kako mjeriti termometrom i zašto meso treba odmoriti.',
+                'date' => '2026-10-26',
+                'read' => '5 min',
+            ],
+            [
+                'slug' => 'koliko-hrana-traje-hladnjak-zamrzivac',
+                'title' => 'Koliko hrana traje u hladnjaku i zamrzivaču',
+                'excerpt' => 'Rokovi za sirovo meso, ribu, kuhana jela i ostatke u hladnjaku i zamrzivaču, pravilo dva sata, sigurno odmrzavanje i kako čuvati kuhana jela.',
+                'date' => '2026-10-26',
+                'read' => '5 min',
+            ],
+            [
+                'slug' => 'zimnica-sterilizacija-pasterizacija-staklenki',
+                'title' => 'Zimnica: sterilizacija i pasterizacija staklenki korak po korak',
+                'excerpt' => 'Kako pripremiti staklenke, koliko ih puniti, kako pasterizirati u vodenoj kupelji, kako provjeriti je li staklenka zatvorena i zašto nekiselo povrće ne ide u lonac.',
+                'date' => '2026-10-26',
+                'read' => '6 min',
+            ],
+            [
+                'slug' => 'pekmez-i-dzem-omjer-secera',
+                'title' => 'Pekmez i džem: koliko šećera na kilogram voća',
+                'excerpt' => 'Razlika između pekmeza, džema i marmelade, klasični omjer šećera, želirni šećer 1:1, 2:1 i 3:1, pekmez od šljiva bez šećera i proba na hladnom tanjuru.',
+                'date' => '2026-10-26',
+                'read' => '5 min',
+            ],
+            [
+                'slug' => 'kiseli-kupus-ribanac-omjer-soli',
+                'title' => 'Kiseli kupus (ribanac): koliko soli i kako ga ukiseliti',
+                'excerpt' => 'Omjer od 2–2,5 % soli s tablicom za 1 do 25 kg, posuda i uteg, temperatura fermentacije, kada je kupus gotov i po čemu se vidi da nešto nije u redu.',
+                'date' => '2026-10-26',
+                'read' => '5 min',
+            ],
+            [
+                'slug' => 'domaci-kruh-omjeri-brasna-vode-kvasca',
+                'title' => 'Domaći kruh: omjer brašna, vode, kvasca i soli',
+                'excerpt' => 'Pekarski postoci, koliko vode za koji kruh, svježi ili suhi kvasac, mijesenje, dizanje i pečenje s parom, najčešće pogreške i kruh s kiselim tijestom.',
+                'date' => '2026-10-26',
+                'read' => '6 min',
+            ],
             [
                 'slug' => 'domace-kobasice-za-pecenje',
                 'title' => 'Domaće kobasice za pečenje: meso, začini i punjenje korak po korak',
@@ -198,6 +240,16 @@ class SiteController extends Controller
         $sastojci = collect($p->ingredients ?? [])->map(fn ($s) => implode(' ', array_filter([$s['quantity'] ?? '', $s['unit'] ?? '', $s['name'] ?? ''])))->implode(' ');
 
         return mb_strlen((string) $p->content) + mb_strlen($sastojci);
+    }
+
+    /** „4 osobe", „6 osoba" — s $za: „za 1 osobu", „za 4 osobe", „za 6 osoba". */
+    public static function osobe(int $n, bool $za = false): string
+    {
+        $zadnja = $n % 10;
+        $oblik = ($n % 100 >= 11 && $n % 100 <= 14) ? 'osoba'
+            : ($zadnja === 1 ? ($za ? 'osobu' : 'osoba') : ($zadnja >= 2 && $zadnja <= 4 ? 'osobe' : 'osoba'));
+
+        return ($za ? 'za ' : '').$n.' '.$oblik;
     }
 
     public static function slika(?string $path): ?string

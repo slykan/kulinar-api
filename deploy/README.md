@@ -7,8 +7,9 @@ Server: cPanel korisnik `kulinar`. Laravel je u `~/api`, docroot je `~/public_ht
 
 1. **Laravel** — u `~/api`:
    ```bash
-   cd ~/api && git pull && php artisan optimize:clear && php artisan optimize
+   cd ~/api && git pull && php artisan migrate --force && php artisan optimize:clear && php artisan optimize
    ```
+   `migrate` dodaje i uredničke recepte (korisnik „Kulinar.app", urednistvo@kulinar.app); recept s istim slugom se ne dira.
 2. **Flutter web u /app** — raspakirati `kulinar.app/kulinar-web-app.zip` (sadržaj `build/web/`) (build s `--base-href /app/`)
    uploadati u `~/public_html/app/`.
 3. **Očistiti stari Flutter iz korijena** `~/public_html/` — obrisati:

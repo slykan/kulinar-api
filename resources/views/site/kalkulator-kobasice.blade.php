@@ -50,6 +50,46 @@
             <li>Ispeci mali komadić i probaj sol <em>prije</em> punjenja.</li>
             <li>Napuni u isprana svinjska crijeva, ne prečvrsto, i izbockaj mjehuriće zraka.</li>
         </ol>
+        <h2>Primjer: 5 kg mesa</h2>
+        <table class="t">
+            <tr><th>Začin</th><th class="num">Omjer</th><th class="num">Za 5 kg</th></tr>
+            <tr><td>Sol</td><td class="num">1,8 %</td><td class="num">90 g</td></tr>
+            <tr><td>Slatka paprika</td><td class="num">0,5 %</td><td class="num">25 g</td></tr>
+            <tr><td>Ljuta paprika</td><td class="num">0,5 %</td><td class="num">25 g</td></tr>
+            <tr><td>Češnjak (svježi)</td><td class="num">0,5 %</td><td class="num">25 g (oko 6–8 češnjeva)</td></tr>
+            <tr><td>Šećer</td><td class="num">0,5 %</td><td class="num">25 g</td></tr>
+            <tr><td>Mljeveni papar</td><td class="num">0,3 %</td><td class="num">15 g</td></tr>
+        </table>
+        <p>
+            U 5 kg računa se <strong>sve što ide u kobasicu</strong> — meso i slanina zajedno. Ako uzmeš 4 kg svinjskog
+            buta i 1 kg slanine, začine računaj na 5 kg. Za manje količine začine važi na digitalnoj vagi:
+            15 g papra je oko dvije žlice, a razlika od nekoliko grama soli itekako se osjeti.
+        </p>
+
+        <h2>Česta pitanja</h2>
+        <h3>Koliko masnoće treba u kobasicama?</h3>
+        <p>
+            Za sočne kobasice za pečenje uobičajeno je 20–30 % masnoće (slanina, masni vrat ili potrbušina). S manje od
+            15 % kobasice su suhe i mrvičaste, a s više od 35 % previše se smanje pri pečenju.
+        </p>
+        <h3>Koliko mi crijeva treba?</h3>
+        <p>
+            Za svinjska crijeva promjera 30–36 mm računa se okvirno 1 m crijeva na 0,8–1 kg nadjeva. Crijeva prije
+            punjenja namoči u mlakoj vodi i isperi iznutra.
+        </p>
+        <h3>Koliko traju svježe kobasice?</h3>
+        <p>
+            U hladnjaku 1–2 dana, pa ih ispeci ili zamrzni. Zamrznute zadržavaju dobru kvalitetu nekoliko mjeseci —
+            vidi <a href="/vodici/koliko-hrana-traje-hladnjak-zamrzivac">koliko hrana traje u hladnjaku i zamrzivaču</a>.
+            Peci ih dok u sredini ne dosegnu 71 °C, kao i ostalo mljeveno meso
+            (<a href="/vodici/temperatura-pecenja-mesa">temperature pečenja mesa</a>).
+        </p>
+        <h3>Mogu li dodati vino ili vodu?</h3>
+        <p>
+            Može malo ledene vode ili bijelog vina (do 3–5 % mase), što olakšava miješanje i punjenje. Kalkulator to ne
+            računa — dodaj po osjećaju.
+        </p>
+
         <p>Cijeli postupak s izborom mesa i čuvanjem kobasica opisan je u vodiču
             <a href="/vodici/domace-kobasice-za-pecenje">Domaće kobasice za pečenje</a>.</p>
     </div>

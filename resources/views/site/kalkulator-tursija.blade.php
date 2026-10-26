@@ -41,6 +41,42 @@
             <li>Prelij vrućom salamurom tako da povrće bude potpuno prekriveno, i zatvori tegle.</li>
             <li>Tegle pasteriziraj u vodenoj kupelji ili ih ostavi da se polako hlade umotane u deku.</li>
         </ol>
+        <h2>Primjer: 5 kg povrća</h2>
+        <p>
+            Za oko 5 kg narezanog povrća treba otprilike 2,5 l salamure. Prema omjeru 1:3 to je:
+        </p>
+        <table class="t">
+            <tr><td>Alkoholni ocat (9 %)</td><td class="num">0,625 l</td></tr>
+            <tr><td>Voda</td><td class="num">1,875 l</td></tr>
+            <tr><td>Sol</td><td class="num">94 g</td></tr>
+            <tr><td>Šećer</td><td class="num">156 g</td></tr>
+            <tr class="total"><td>Ukupno salamure</td><td class="num">oko 2,5 l</td></tr>
+        </table>
+        <p>U praksi zaokruži na 0,7 l octa i 2 l vode — malo jača salamura nikad ne škodi.</p>
+
+        <h2>Česta pitanja</h2>
+        <h3>Koji ocat?</h3>
+        <p>
+            Omjeri u kalkulatoru računaju se za <strong>alkoholni ocat od 9 %</strong>. Ako koristiš ocat od 5 % (jabučni,
+            vinski), treba ga gotovo dvostruko više za istu kiselost — u omjeru otprilike 1:1 s vodom umjesto 1:3. Kod
+            slabijeg octa nemoj smanjivati količinu, jer kiselina je ono što turšiju čuva.
+        </p>
+        <h3>Može li turšija bez šećera?</h3>
+        <p>
+            Može — šećer je za okus, a turšiju konzerviraju ocat i sol. Bez šećera turšija je kiselija i oštrija.
+        </p>
+        <h3>Treba li konzervans?</h3>
+        <p>
+            Ne mora. Uz dovoljno octa, čiste tegle i pasterizaciju turšija traje do proljeća. Konzervansi (npr. natrijev
+            benzoat) se mogu dodati prema uputi na pakiranju, ali ne zamjenjuju čistoću i pasterizaciju.
+        </p>
+        <h3>Zašto se salamura zamutila?</h3>
+        <p>
+            Ako je mutnoća prisutna od prvog dana, uzrok je često sol s dodacima ili tvrda voda. Ako se pojavi kasnije
+            uz pjenu, napuhnut poklopac ili neugodan miris, turšija se pokvarila i treba je baciti. Kako pravilno zatvoriti
+            tegle, objašnjava vodič <a href="/vodici/zimnica-sterilizacija-pasterizacija-staklenki">zimnica: sterilizacija i pasterizacija</a>.
+        </p>
+
         <p>Detaljno o izboru povrća, pasterizaciji i čuvanju u vodiču <a href="/vodici/tursija-salamura-omjeri">Turšija: omjer octa i vode, salamura i pasterizacija</a>.</p>
     </div>
 

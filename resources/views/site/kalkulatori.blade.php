@@ -2,7 +2,7 @@
     'title' => 'Kalkulatori za domaću kuhinju',
     'description' => 'Besplatni kalkulatori: začini za domaće kobasice po kilogramu mesa, salamura za turšiju i tripice za bilo koju količinu.',
     'nav' => 'kalkulatori',
-    'ads' => true,
+    'ads' => false, // list page — ads only next to recipes, guides and calculators
 ])
 
 @section('content')

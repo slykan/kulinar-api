@@ -2,7 +2,7 @@
     'title' => 'Vodiči za domaću kuhinju',
     'description' => 'Vodiči korak po korak: domaće kobasice, turšija i salamura, tripice, kuhinjske mjere i preračunavanje recepata.',
     'nav' => 'vodici',
-    'ads' => true,
+    'ads' => false, // list page — ads only next to recipes, guides and calculators
 ])
 
 @section('content')
