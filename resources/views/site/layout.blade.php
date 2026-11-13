@@ -19,6 +19,7 @@
     @if (($ads ?? false) && ($index ?? true))
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3054841074530422" crossorigin="anonymous"></script>
     @endif
+    <script defer src="https://puls.on-click.hr/p.js" data-site="gliu562nof"></script>
     @isset($jsonLd)
         <script type="application/ld+json">{!! json_encode($jsonLd, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
     @endisset
