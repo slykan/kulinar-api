@@ -34,6 +34,13 @@ class SiteController extends Controller
     {
         return [
             [
+                'slug' => 'advent-badnjak-bozic-stara-godina-jelovnik',
+                'title' => 'Advent, Badnjak, Božić i Stara godina: jelovnik i plan kuhanja',
+                'excerpt' => 'Što se tradicionalno jede na Badnjak, za Božić i na Staru godinu, koja jela možeš pripremiti danima unaprijed i kako rasporediti kuhanje da blagdane ne provedeš u kuhinji.',
+                'date' => '2026-11-25',
+                'read' => '7 min',
+            ],
+            [
                 'slug' => 'kolinje-krvavice-svargla-pecenice',
                 'title' => 'Krvavice, švargla i pečenice: kolinje korak po korak',
                 'excerpt' => 'Što se radi od kojeg dijela svinje, redoslijed poslova na dan kolinja, nadjev za krvavice, kuhanje švargle i kako sve ohladiti i spremiti.',

@@ -15,4 +15,12 @@ return [
     'posts/recept-kobasice-punjenje.jpg' => ['autor' => 'László Szalai', 'licenca' => 'javno vlasništvo', 'licenca_url' => '', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Sausage_making-H-1.jpg'],
     'posts/recept-kobasice-pecene.jpg' => ['autor' => 'Archer Allstars', 'licenca' => 'Unsplash License', 'licenca_url' => 'https://unsplash.com/license', 'izvor' => 'https://unsplash.com/', 'platforma' => 'Unsplash'],
     'posts/recept-kiseli-kupus.jpg' => ['autor' => 'Anshu A', 'licenca' => 'Unsplash License', 'licenca_url' => 'https://unsplash.com/license', 'izvor' => 'https://unsplash.com/', 'platforma' => 'Unsplash'],
+    // 25.11.2026. — blagdanski recepti (migracija 2026_11_25_000002)
+    'posts/recept-blagdani-kuhano-vino.jpg' => ['autor' => 'Andy Li', 'licenca' => 'CC0', 'licenca_url' => 'http://creativecommons.org/publicdomain/zero/1.0/deed.en', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Mulled_wine_-_Olea_2025-12-26.jpg'],
+    'posts/recept-blagdani-bakalar.jpg' => ['autor' => 'Benreis', 'licenca' => 'CC BY-SA 4.0', 'licenca_url' => 'https://creativecommons.org/licenses/by-sa/4.0', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Baccal%C3%A0_mantecato_con_polenta_La_Nuova_Perla.jpg'],
+    'posts/recept-blagdani-mlinci.jpg' => ['autor' => 'M. Rehemtulla', 'licenca' => 'CC BY 2.0', 'licenca_url' => 'https://creativecommons.org/licenses/by/2.0', 'izvor' => 'https://commons.wikimedia.org/wiki/File:RoastTurkey.jpg'],
+    'posts/recept-blagdani-orahnjaca.jpg' => ['autor' => 'Hu Totya', 'licenca' => 'CC BY-SA 4.0', 'licenca_url' => 'https://creativecommons.org/licenses/by-sa/4.0', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Bejgli2.jpg'],
+    'posts/recept-blagdani-francuska-salata.jpg' => ['autor' => 'Miansari66', 'licenca' => 'CC0', 'licenca_url' => 'http://creativecommons.org/publicdomain/zero/1.0/deed.en', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Russian_Salad..JPG'],
+    'posts/recept-blagdani-vanilin-kiflice.jpg' => ['autor' => 'Schlurcher ', 'licenca' => 'CC BY 4.0', 'licenca_url' => 'https://creativecommons.org/licenses/by/4.0', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Vanillekipferl-Nahaufnahme.jpg'],
+    'posts/recept-blagdani-medenjaci.jpg' => ['autor' => 'Michele Purin', 'licenca' => 'Unsplash License', 'licenca_url' => 'https://unsplash.com/license', 'izvor' => 'https://unsplash.com/', 'platforma' => 'Unsplash'],
 ];
