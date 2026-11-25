@@ -1,6 +1,6 @@
 @extends('site.layout', [
     'title' => 'Kalkulatori za domaću kuhinju',
-    'description' => 'Besplatni kalkulatori: začini za domaće kobasice po kilogramu mesa, salamura za turšiju i tripice za bilo koju količinu.',
+    'description' => 'Besplatni kalkulatori za kolinje i domaću kuhinju: koliko mesa daje svinja, začini za kobasice i kulen, soljenje šunke, mast i čvarci, crijeva, sušenje, turšija i tripice.',
     'nav' => 'kalkulatori',
     'ads' => false, // list page — ads only next to recipes, guides and calculators
 ])

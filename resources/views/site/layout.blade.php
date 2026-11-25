@@ -91,6 +91,17 @@
         .tool input:focus { outline: none; border-color: var(--o); }
         .tool .hint { color: var(--dim); font-size: .84rem; margin-top: 6px; }
 
+        .kol-banner { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; margin-top: 44px; background: linear-gradient(135deg, rgba(232,93,4,.22), rgba(232,93,4,.05)); border: 1px solid rgba(232,93,4,.35); border-radius: 18px; padding: 18px; transition: border-color .2s; }
+        .kol-banner:hover { border-color: var(--o); }
+        .kol-banner img { width: 100%; height: 165px; object-fit: cover; border-radius: 12px; display: block; }
+        .kol-banner h2 { font-size: 1.45rem; font-weight: 850; margin: 8px 0 6px; }
+        .kol-banner p { color: var(--muted); margin-bottom: 14px; }
+        @media (max-width: 760px) { .kol-banner { grid-template-columns: 1fr; } }
+        .slika-izvor { margin: 22px 0; }
+        .slika-izvor img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); display: block; }
+        .slika-izvor figcaption { color: var(--dim); font-size: .75rem; margin-top: 6px; }
+        .slika-izvor figcaption a { color: var(--dim) !important; font-weight: 400 !important; text-decoration: underline; }
+
         .pill { display: inline-block; padding: 4px 11px; border-radius: 99px; background: var(--ol); color: #ffb27a; font-size: .8rem; font-weight: 700; }
         .crumbs { color: var(--dim); font-size: .9rem; margin-bottom: 18px; }
         .crumbs a:hover { color: var(--o); }
@@ -120,6 +131,7 @@
         <a href="/" class="brand"><img src="/icons/Icon-192.png" alt=""><b>Kulinar<span>.app</span></b></a>
         <nav class="main">
             <a href="/recepti" class="{{ ($nav ?? '') === 'recepti' ? 'on' : '' }}">Recepti</a>
+            <a href="/kolinje" class="{{ ($nav ?? '') === 'kolinje' ? 'on' : '' }}">Kolinje</a>
             <a href="/kalkulatori" class="{{ ($nav ?? '') === 'kalkulatori' ? 'on' : '' }}">Kalkulatori</a>
             <a href="/vodici" class="{{ ($nav ?? '') === 'vodici' ? 'on' : '' }}">Vodiči</a>
             <a href="/app/" class="btn">Otvori aplikaciju</a>
@@ -142,11 +154,15 @@
             </div>
             <div><h4>Sadržaj</h4><ul>
                 <li><a href="/recepti">Recepti</a></li>
+                <li><a href="/kolinje">Kolinje</a></li>
                 <li><a href="/kalkulatori">Kalkulatori</a></li>
                 <li><a href="/vodici">Vodiči</a></li>
             </ul></div>
             <div><h4>Kalkulatori</h4><ul>
                 <li><a href="/kalkulatori/kobasice">Začini za kobasice</a></li>
+                <li><a href="/kalkulatori/svinja">Koliko mesa daje svinja</a></li>
+                <li><a href="/kalkulatori/kulen">Kulen</a></li>
+                <li><a href="/kalkulatori/mast-cvarci">Mast i čvarci</a></li>
                 <li><a href="/kalkulatori/tursija">Salamura za turšiju</a></li>
                 <li><a href="/kalkulatori/tripice">Tripice</a></li>
             </ul></div>

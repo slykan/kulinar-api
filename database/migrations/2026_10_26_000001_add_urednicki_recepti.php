@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /**
  * Urednički recepti Kulinar.app — originalni tekstovi klasičnih domaćih jela.
@@ -18,7 +20,7 @@ return new class extends Migration
             ?? DB::table('users')->insertGetId([
                 'name' => 'Kulinar.app',
                 'email' => self::EMAIL,
-                'password' => null,
+                'password' => Hash::make(Str::random(40)), // račun bez prijave; lozinku nitko ne zna
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

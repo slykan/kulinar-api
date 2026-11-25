@@ -19,14 +19,60 @@ class SiteController extends Controller
     public const MIN_INDEX_CHARS = 600; // kraći korisnički recepti su noindex, bez oglasa i izvan sitemapa
 
     public const KALKULATORI = [
-        'kobasice' => ['naziv' => 'Kalkulator začina za kobasice', 'ico' => '🌭', 'opis' => 'Upiši kilograme mesa i dobiješ točne grame soli, paprike, papra, češnjaka i šećera.'],
-        'tripice'  => ['naziv' => 'Kalkulator tripica', 'ico' => '🍲', 'opis' => 'Klasični recept za tripice preračunat za bilo koju količinu — od jedne porcije do kotlića.'],
-        'tursija'  => ['naziv' => 'Kalkulator salamure za turšiju', 'ico' => '🥒', 'opis' => 'Koliko octa, vode, soli i šećera treba za tvoju količinu turšije.'],
+        'kobasice' => ['naziv' => 'Kalkulator začina za kobasice', 'ico' => '🌭', 'opis' => 'Upiši kilograme mesa i dobiješ točne grame soli, paprike, papra, češnjaka i šećera.', 'kolinje' => true],
+        'svinja' => ['naziv' => 'Koliko mesa daje svinja', 'ico' => '🐖', 'opis' => 'Upiši težinu žive svinje i vidi koliko kg buta, lopatica, slanine, masti i mesa za kobasice možeš očekivati.', 'kolinje' => true],
+        'soljenje' => ['naziv' => 'Soljenje šunke, pancete i slanine', 'ico' => '🥓', 'opis' => 'Koliko soli, nitritne soli i začina za suho soljenje ili salamuru i koliko dana meso stoji u soli.', 'kolinje' => true],
+        'mast-cvarci' => ['naziv' => 'Kalkulator masti i čvaraka', 'ico' => '🔥', 'opis' => 'Koliko masti i čvaraka daje slanina, koliko staklenki pripremiti i koliko soli ide u čvarke.', 'kolinje' => true],
+        'kulen' => ['naziv' => 'Kalkulator za kulen', 'ico' => '🌶️', 'opis' => 'Sol, ljuta i slatka paprika i češnjak za kulen i kulenovu seku, preračunato na tvoju količinu mesa.', 'kolinje' => true],
+        'susenje' => ['naziv' => 'Kalkulator sušenja mesa', 'ico' => '⚖️', 'opis' => 'Koliko kobasica, kulen, šunka ili panceta trebaju izgubiti na težini da bi bili gotovi.', 'kolinje' => true],
+        'crijeva' => ['naziv' => 'Koliko crijeva treba', 'ico' => '📏', 'opis' => 'Metri crijeva za kobasice, krvavice, češnjovke i kulen prema kilogramima nadjeva.', 'kolinje' => true],
+        'tripice' => ['naziv' => 'Kalkulator tripica', 'ico' => '🍲', 'opis' => 'Klasični recept za tripice preračunat za bilo koju količinu — od jedne porcije do kotlića.'],
+        'tursija' => ['naziv' => 'Kalkulator salamure za turšiju', 'ico' => '🥒', 'opis' => 'Koliko octa, vode, soli i šećera treba za tvoju količinu turšije.'],
     ];
 
     public static function vodici(): array
     {
         return [
+            [
+                'slug' => 'kolinje-krvavice-svargla-pecenice',
+                'title' => 'Krvavice, švargla i pečenice: kolinje korak po korak',
+                'excerpt' => 'Što se radi od kojeg dijela svinje, redoslijed poslova na dan kolinja, nadjev za krvavice, kuhanje švargle i kako sve ohladiti i spremiti.',
+                'date' => '2026-11-16',
+                'read' => '8 min',
+                'kolinje' => true,
+            ],
+            [
+                'slug' => 'dimljenje-mesa-drvo-trajanje',
+                'title' => 'Dimljenje mesa: koje drvo, koliko dana i hladni ili topli dim',
+                'excerpt' => 'Kada meso ide u pušnicu, koje drvo koristiti, a koje nikako, koliko dugo dimiti kobasice, slaninu i šunku i kako izbjeći gorak ili čađav okus.',
+                'date' => '2026-11-16',
+                'read' => '6 min',
+                'kolinje' => true,
+            ],
+            [
+                'slug' => 'susenje-i-cuvanje-suhog-mesa',
+                'title' => 'Sušenje i čuvanje suhog mesa: temperatura, vlaga i plijesan',
+                'excerpt' => 'Idealni uvjeti za sušenje kobasica, kulena i šunke, kako prepoznati „zatvorenu koru”, koja je plijesan dobra, a koja nije i kako čuvati gotovo suho meso.',
+                'date' => '2026-11-16',
+                'read' => '7 min',
+                'kolinje' => true,
+            ],
+            [
+                'slug' => 'svinjska-crijeva-ciscenje-priprema',
+                'title' => 'Svinjska crijeva: čišćenje, priprema i koja za što',
+                'excerpt' => 'Tanka, debela i slijepo crijevo, kupljena ili domaća, kako ih očistiti, namočiti i čuvati te koji promjer ide za kobasice, krvavice i kulen.',
+                'date' => '2026-11-16',
+                'read' => '5 min',
+                'kolinje' => true,
+            ],
+            [
+                'slug' => 'domaca-mast-i-cvarci',
+                'title' => 'Domaća mast i čvarci: topljenje u kotlu korak po korak',
+                'excerpt' => 'Koja slanina za mast, a koja za čvarke, koliko vode na početku, kako znati da su čvarci gotovi, prešanje, soljenje i spremanje masti.',
+                'date' => '2026-11-16',
+                'read' => '6 min',
+                'kolinje' => true,
+            ],
             [
                 'slug' => 'temperatura-pecenja-mesa',
                 'title' => 'Temperatura pečenja mesa: kada je piletina, svinjetina i junetina gotova',
@@ -75,6 +121,7 @@ class SiteController extends Controller
                 'excerpt' => 'Koje meso odabrati, koliko masnoće, koliko soli i začina po kilogramu, kako puniti crijeva i koliko svježe kobasice traju.',
                 'date' => '2026-10-13',
                 'read' => '7 min',
+                'kolinje' => true,
             ],
             [
                 'slug' => 'tursija-salamura-omjeri',
@@ -168,6 +215,22 @@ class SiteController extends Controller
         ]);
     }
 
+    /** Recepti koji se vežu uz kolinje (slugovi uredničkih recepata). */
+    public const RECEPTI_KOLINJE = ['krvavice-domace', 'svargla-tlacenka', 'cvarci-domaci', 'pogacice-sa-cvarcima', 'pecene-kobasice-s-kiselim-kupusom', 'sarma-od-kiselog-kupusa', 'grah-varivo-s-kobasicom'];
+
+    /** Kolinje: sve na jednom mjestu — kalkulatori, vodiči i recepti. */
+    public function kolinje(): View
+    {
+        $recepti = Post::with('user')->where('published', true)->whereIn('slug', self::RECEPTI_KOLINJE)->get()
+            ->sortBy(fn (Post $p) => array_search($p->slug, self::RECEPTI_KOLINJE))->values();
+
+        return view('site.kolinje', [
+            'kalkulatori' => array_filter(self::KALKULATORI, fn ($k) => $k['kolinje'] ?? false),
+            'vodici' => array_values(array_filter(self::vodici(), fn ($v) => $v['kolinje'] ?? false)),
+            'recepti' => $this->withRatings($recepti),
+        ]);
+    }
+
     public function vodiciIndex(): View
     {
         return view('site.vodici', ['vodici' => self::vodici()]);
@@ -191,6 +254,7 @@ class SiteController extends Controller
             [url('/recepti'), '0.9', null],
             [url('/kalkulatori'), '0.9', null],
             [url('/vodici'), '0.8', null],
+            [url('/kolinje'), '0.9', '2026-11-16'],
         ];
         foreach (array_keys(self::KALKULATORI) as $k) {
             $urls[] = [url('/kalkulatori/'.$k), '0.9', null];
@@ -250,6 +314,25 @@ class SiteController extends Controller
             : ($zadnja === 1 ? ($za ? 'osobu' : 'osoba') : ($zadnja >= 2 && $zadnja <= 4 ? 'osobe' : 'osoba'));
 
         return ($za ? 'za ' : '').$n.' '.$oblik;
+    }
+
+    /** Potpis ispod slike s Wikimedia Commonsa: „Foto: autor, licenca (Wikimedia Commons)” ili null ako slika nema upisan izvor. */
+    public static function izvorSlike(?string $path): ?string
+    {
+        $i = $path ? (config('slike') ?? [])[ltrim($path, '/')] ?? null : null;
+        if (! $i) {
+            return null;
+        }
+        $licenca = $i['licenca_url'] ? '<a href="'.e($i['licenca_url']).'" target="_blank" rel="noopener nofollow">'.e($i['licenca']).'</a>' : e($i['licenca']);
+
+        return 'Foto: '.e($i['autor']).', '.$licenca.', <a href="'.e($i['izvor']).'" target="_blank" rel="noopener nofollow">'.e($i['platforma'] ?? 'Wikimedia Commons').'</a>';
+    }
+
+    /** Slika s public diska (storage) s potpisom autora. */
+    public static function slikaSIzvorom(string $path, string $alt): string
+    {
+        return '<figure class="slika-izvor"><img src="'.e(self::slika($path)).'" alt="'.e($alt).'" loading="lazy">'
+            .(($izvor = self::izvorSlike($path)) ? '<figcaption>'.$izvor.'</figcaption>' : '').'</figure>';
     }
 
     public static function slika(?string $path): ?string

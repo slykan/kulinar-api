@@ -36,6 +36,17 @@
         </div>
     </section>
 
+    <a href="/kolinje" class="kol-banner">
+        <img src="/storage/kolinje/hero.jpg" alt="" width="840" height="630">
+        <div>
+            <span class="pill">Sezona kolinja</span>
+            <h2>Kolinje: kalkulatori, vodiči i recepti</h2>
+            <p>Koliko mesa daje svinja, sol za šunku i slaninu, začini za kulen, mast i čvarci, crijeva, dimljenje i sušenje — sve na jednom mjestu.</p>
+            <span class="btn">Sve za kolinje →</span>
+            <small style="display:block;color:var(--dim);font-size:.72rem;margin-top:10px;">Foto: Vcesnak, CC BY-SA 3.0, Wikimedia Commons</small>
+        </div>
+    </a>
+
     <h2 class="sec">Kalkulatori <a href="/kalkulatori">Svi kalkulatori →</a></h2>
     <div class="grid">
         @foreach ($kalkulatori as $slug => $k)

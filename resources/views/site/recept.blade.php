@@ -39,7 +39,14 @@
     </div>
 
     @if ($img)
-        <img src="{{ $img }}" alt="{{ $post->title }}" style="width:100%;max-height:480px;object-fit:cover;border-radius:18px;margin-bottom:26px;">
+        @if ($izvor = \App\Http\Controllers\SiteController::izvorSlike($post->image))
+            <figure class="slika-izvor" style="margin:0 0 26px;">
+                <img src="{{ $img }}" alt="{{ $post->title }}" style="width:100%;max-height:480px;object-fit:cover;border-radius:18px;margin:0;">
+                <figcaption>{!! $izvor !!}</figcaption>
+            </figure>
+        @else
+            <img src="{{ $img }}" alt="{{ $post->title }}" style="width:100%;max-height:480px;object-fit:cover;border-radius:18px;margin-bottom:26px;">
+        @endif
     @endif
 
     @if ($post->excerpt)<p class="lead" style="margin-bottom:24px;">{{ $post->excerpt }}</p>@endif

@@ -10,4 +10,9 @@ return [
     'posts/kolinje-cvarci.jpg' => ['autor' => 'Biser Todorov', 'licenca' => 'CC BY 4.0', 'licenca_url' => 'https://creativecommons.org/licenses/by/4.0', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Pork_prrr.jpg'],
     'posts/kolinje-pogacice.jpg' => ['autor' => 'Mira & Neša', 'licenca' => 'Copyrighted free use', 'licenca_url' => '', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Poga%C4%8Dice_sa_cvarcima.jpg'],
     'posts/kolinje-kobasice-kupus.jpg' => ['autor' => 'Tamorlan', 'licenca' => 'CC BY 2.5', 'licenca_url' => 'https://creativecommons.org/licenses/by/2.5', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Mettwurst_with_sauerkraut_and_potatoes.jpg'],
+    // 25.11.2026. — sarma, kobasice, kiseli kupus (migracija 2026_11_25_000001)
+    'posts/recept-sarma.jpg' => ['autor' => 'Shixart1985', 'licenca' => 'CC BY 2.0', 'licenca_url' => 'https://creativecommons.org/licenses/by/2.0', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Freshly_cooked_stuffed_cabbage_rolls_in_a_pot_on_a_wooden_table_ready_to_be_served_with_a_spoon.jpg'],
+    'posts/recept-kobasice-punjenje.jpg' => ['autor' => 'László Szalai', 'licenca' => 'javno vlasništvo', 'licenca_url' => '', 'izvor' => 'https://commons.wikimedia.org/wiki/File:Sausage_making-H-1.jpg'],
+    'posts/recept-kobasice-pecene.jpg' => ['autor' => 'Archer Allstars', 'licenca' => 'Unsplash License', 'licenca_url' => 'https://unsplash.com/license', 'izvor' => 'https://unsplash.com/', 'platforma' => 'Unsplash'],
+    'posts/recept-kiseli-kupus.jpg' => ['autor' => 'Anshu A', 'licenca' => 'Unsplash License', 'licenca_url' => 'https://unsplash.com/license', 'izvor' => 'https://unsplash.com/', 'platforma' => 'Unsplash'],
 ];

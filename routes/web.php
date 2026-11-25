@@ -9,6 +9,7 @@ Route::get('/recepti', [SiteController::class, 'recepti'])->name('recepti');
 Route::get('/recepti/{slug}', [SiteController::class, 'recept'])->name('recept');
 Route::get('/kalkulatori', [SiteController::class, 'kalkulatori'])->name('kalkulatori');
 Route::get('/kalkulatori/{slug}', [SiteController::class, 'kalkulator'])->name('kalkulator');
+Route::get('/kolinje', [SiteController::class, 'kolinje'])->name('kolinje');
 Route::get('/vodici', [SiteController::class, 'vodiciIndex'])->name('vodici');
 Route::get('/vodici/{slug}', [SiteController::class, 'vodic'])->name('vodic');
 Route::view('/o-nama', 'site.o-nama')->name('o-nama');
